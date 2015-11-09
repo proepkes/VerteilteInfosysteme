@@ -7,7 +7,7 @@ namespace VIDBReplication
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             var serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
             

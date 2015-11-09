@@ -12,8 +12,6 @@ namespace DBLib
         {
             Name = name;
         }
-        public string Name { get; }
-
-        public bool IsClientTable { get; set; }
+        public string Name { get; }    
     }
 }
