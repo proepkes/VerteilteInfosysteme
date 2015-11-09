@@ -26,7 +26,7 @@ namespace DBSync
                 Direction = SyncDirectionOrder.UploadAndDownload
             };
 
-            // execute the synchronization process
+            // execute the synchronization process test
             var syncStats = syncOrchestrator.Synchronize();
             
             // print statistics
