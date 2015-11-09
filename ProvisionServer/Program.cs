@@ -9,21 +9,21 @@ namespace VIDBReplication
     {
         static void Main(string[] args)
         {
-            SqlConnection serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
+            var serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
             
             //var deprovisionScope = new SqlSyncScopeDeprovisioning(serverConn);
             //deprovisionScope.DeprovisionScope("FullScope");
             
             // define a new scope
-            DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription("FullScope");
+            var scopeDesc = new DbSyncScopeDescription("FullScope");
 
             // add the table description to the sync scope definition
             foreach (var table in DbInfo.Tables)
                 scopeDesc.Tables.Add(SqlSyncDescriptionBuilder.GetDescriptionForTable(table.Name, serverConn));
-            
+
 
             // create a server scope provisioning object based on the ProductScope
-            SqlSyncScopeProvisioning serverProvision = new SqlSyncScopeProvisioning(serverConn, scopeDesc);
+            var serverProvision = new SqlSyncScopeProvisioning(serverConn, scopeDesc);
 
             // skipping the creation of table since table already exists on server
             serverProvision.SetCreateTableDefault(DbSyncCreationOption.Skip);

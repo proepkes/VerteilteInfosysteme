@@ -10,7 +10,7 @@ namespace DBLib
     {
         public DbTable(string name)
         {
-            this.Name = name;
+            Name = name;
         }
         public string Name { get; }    
     }

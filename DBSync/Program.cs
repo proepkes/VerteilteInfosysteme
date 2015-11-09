@@ -27,7 +27,7 @@ namespace DBSync
             };
 
             // execute the synchronization process
-            SyncOperationStatistics syncStats = syncOrchestrator.Synchronize();
+            var syncStats = syncOrchestrator.Synchronize();
             
             // print statistics
             Console.WriteLine("Start Time: " + syncStats.SyncStartTime);
