@@ -16,7 +16,7 @@ namespace DBSync
             clientSyncProvider.ApplyChangeFailed += ApplyChangeFailed;
             // create a connection to the ServerDB
             var serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
-            var serverSyncProvider = new SqlSyncProvider("FullScope", clientConn);
+            var serverSyncProvider = new SqlSyncProvider("FullScope", serverConn);
             serverSyncProvider.ApplyChangeFailed += ApplyChangeFailed;
             // create the sync orhcestrator
             var syncOrchestrator = new SyncOrchestrator
@@ -41,7 +41,7 @@ namespace DBSync
         static void ApplyChangeFailed(object sender, DbApplyChangeFailedEventArgs e)
         {
             // display conflict type
-            Console.WriteLine(e.Conflict.Type);
+            Console.WriteLine("Konflikttyp: " + e.Conflict.Type);
 
             // display error message 
             Console.WriteLine(e.Error);
