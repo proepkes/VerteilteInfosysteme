@@ -18,8 +18,8 @@ namespace VIDBReplication
             DbSyncScopeDescription scopeDesc = new DbSyncScopeDescription("FullScope");
 
             // add the table description to the sync scope definition
-            foreach (var table in DBInfo.Tables)
-                scopeDesc.Tables.Add(SqlSyncDescriptionBuilder.GetDescriptionForTable(table, serverConn));
+            foreach (var table in DbInfo.Tables)
+                scopeDesc.Tables.Add(SqlSyncDescriptionBuilder.GetDescriptionForTable(table.Name, serverConn));
             
 
             // create a server scope provisioning object based on the ProductScope
