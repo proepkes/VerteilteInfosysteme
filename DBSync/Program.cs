@@ -22,7 +22,7 @@ namespace DBSync
             var syncOrchestrator = new SyncOrchestrator
             {
                 LocalProvider = clientSyncProvider,
-                RemoteProvider = new SqlSyncProvider("FullScope", serverConn),
+                RemoteProvider = serverSyncProvider,
                 Direction = SyncDirectionOrder.UploadAndDownload
             };
 
