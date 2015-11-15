@@ -10,15 +10,16 @@ namespace DBLib
     {
         public static DbTable[] Tables =
         {
-            new DbTable("sellers"),
+            new DbTable("seller"),
             new DbTable("ship_tours"),
+            new DbTable("ship_routes"),
             new DbTable("customers"),
             new DbTable("locations"),
             new DbTable("offers"),
             new DbTable("passengers"),
-            new DbTable("ship_routes"),
             new DbTable("ships"),
-            new DbTable("transactions")
+            new DbTable("transactions"),
+            new DbTable("route_nodes")
         };
     }
 }

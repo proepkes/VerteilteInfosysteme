@@ -22,6 +22,7 @@ namespace VIDBReplication
                 scopeDesc.Tables.Add(SqlSyncDescriptionBuilder.GetDescriptionForTable(table.Name, serverConn));
 
 
+
             // create a server scope provisioning object based on the ProductScope
             var serverProvision = new SqlSyncScopeProvisioning(serverConn, scopeDesc);
 
