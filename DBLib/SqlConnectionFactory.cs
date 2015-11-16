@@ -11,7 +11,7 @@ namespace DBLib
     {
         public static SqlConnection CreateConnection(string hostname, string databasename, bool integratedSecurity = false)
         {
-            return new SqlConnection("Data Source=" + hostname + "; Initial Catalog=" + databasename + "; Integrated Security=" + integratedSecurity.);
+            return new SqlConnection("Data Source=" + hostname + "; Initial Catalog=" + databasename + "; Integrated Security=" + integratedSecurity);
         }
 
         public static SqlConnection CreateDefaultServerConnection()
