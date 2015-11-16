@@ -9,7 +9,7 @@ namespace VIDBReplication
     {
         static void Main(string[] args)
         {
-            var serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
+            var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
             
             //var deprovisionScope = new SqlSyncScopeDeprovisioning(serverConn);
             //deprovisionScope.DeprovisionScope("FullScope");

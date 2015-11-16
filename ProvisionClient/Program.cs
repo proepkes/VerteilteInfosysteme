@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Data.SqlServerCe;
-
+using DBLib;
 using Microsoft.Synchronization.Data;
 using Microsoft.Synchronization.Data.SqlServer;
 using Microsoft.Synchronization.Data.SqlServerCe;
@@ -12,10 +12,10 @@ namespace ProvisionClient
         static void Main(string[] args)
         {
             // create a connection to the client database
-            var clientConn = new SqlConnection("Data Source = localhost; Initial Catalog = vi_client; Integrated Security = True");
+            var clientConn = SqlConnectionFactory.CreateDefaultClientConnection();
 
             // create a connection to the master database
-            var serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
+            var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
 
             // get the description of FullScope from the master database
             var scopeDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope("FullScope", serverConn);

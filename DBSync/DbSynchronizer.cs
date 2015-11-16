@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Synchronization;
 using Microsoft.Synchronization.Data;
 using Microsoft.Synchronization.Data.SqlServer;
+using DBLib;
 
 namespace DBSync
 {
@@ -17,11 +18,11 @@ namespace DBSync
         {
 
             // create a connection to the ClientDB 
-            var clientConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_client; Integrated Security=True");
+            var clientConn = SqlConnectionFactory.CreateDefaultClientConnection();
             var clientSyncProvider = new SqlSyncProvider("FullScope", clientConn);
             clientSyncProvider.ApplyChangeFailed += ClientApplyChangeFailed;
             // create a connection to the ServerDB
-            var serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
+            var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
             var serverSyncProvider = new SqlSyncProvider("FullScope", serverConn);
             serverSyncProvider.ApplyChangeFailed += ServerApplyChangeFailed;
             // create the sync orhcestrator

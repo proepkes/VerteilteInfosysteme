@@ -8,6 +8,10 @@ namespace DBLib
 {
     public class DbInfo
     {
+        public static string DefaultHostname = "localhost";
+        public static string DefaultServerDatabase = "vi_server";
+        public static string DefaultClientDatabase = "vi_client";
+
         public static DbTable[] Tables =
         {
             new DbTable("seller"),
