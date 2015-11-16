@@ -22,8 +22,7 @@ namespace DBLib
             new DbTable("offers"),
             new DbTable("passengers"),
             new DbTable("ships"),
-            new DbTable("transactions"),
-            new DbTable("route_nodes")
+            new DbTable("transactions")
         };
     }
 }

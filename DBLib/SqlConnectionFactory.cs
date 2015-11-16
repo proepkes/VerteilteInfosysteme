@@ -9,7 +9,7 @@ namespace DBLib
 {
     public static class SqlConnectionFactory
     {
-        public static SqlConnection CreateConnection(string hostname, string databasename, bool integratedSecurity = false)
+        public static SqlConnection CreateConnection(string hostname, string databasename, bool integratedSecurity = true)
         {
             return new SqlConnection("Data Source=" + hostname + "; Initial Catalog=" + databasename + "; Integrated Security=" + integratedSecurity);
         }

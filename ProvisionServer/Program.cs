@@ -21,7 +21,8 @@ namespace VIDBReplication
             foreach (var table in DbInfo.Tables)
                 scopeDesc.Tables.Add(SqlSyncDescriptionBuilder.GetDescriptionForTable(table.Name, serverConn));
 
-
+            //TODO: Protokollierung von Aenderungen // Aenderungen ausgeben
+            //TODO: Server-Event feuern sobald ein Client synchronisiert
 
             // create a server scope provisioning object based on the ProductScope
             var serverProvision = new SqlSyncScopeProvisioning(serverConn, scopeDesc);
