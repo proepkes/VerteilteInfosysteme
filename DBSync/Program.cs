@@ -10,7 +10,7 @@ namespace DBSync
     {
         static void Main(string[] args)
         {
-            new DbSynchronizer().Synchronize();
+            new DbSynchronizer().Synchronize(); //Test
         }
     }
 }
