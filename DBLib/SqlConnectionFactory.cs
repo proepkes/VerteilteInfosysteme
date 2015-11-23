@@ -12,6 +12,7 @@ namespace DBLib
     {
         public static SqlConnection CreateDefaultServerConnection()
         {
+
             return new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" + DbInfo.DefaultServerDatabase + "; Integrated Security=" + true);
         }
 
