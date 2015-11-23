@@ -1,5 +1,6 @@
 ﻿using DBLib;
 using Microsoft.Synchronization.Data.SqlServer;
+using Microsoft.Synchronization.Data.SqlServerCe;
 
 namespace ProvisionClient
 {
@@ -8,7 +9,7 @@ namespace ProvisionClient
         public void ProvisionClient()
         {
             // create a connection to the client database
-            var clientConn = SqlConnectionFactory.CreateDefaultClientConnection();
+            var clientConn = SqlConnectionFactory.CreateDefaultClientCeConnection();
 
             // create a connection to the master database
             var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
@@ -17,7 +18,7 @@ namespace ProvisionClient
             var scopeDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope("FullScope", serverConn);
 
             // create provisioning object based on the FullScope
-            var clientProvision = new SqlSyncScopeProvisioning(clientConn, scopeDesc);
+            var clientProvision = new SqlCeSyncScopeProvisioning(clientConn, scopeDesc);
 
             // starts the provisioning process
             clientProvision.Apply();

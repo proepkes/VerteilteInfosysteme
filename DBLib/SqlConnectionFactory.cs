@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 
 namespace DBLib
 {
@@ -16,6 +17,12 @@ namespace DBLib
             return
                 new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" +
                                   DbInfo.DefaultClientDatabase + "; Integrated Security=" + true);
+        }
+
+        public static SqlCeConnection CreateDefaultClientCeConnection()
+        {
+            return
+                new SqlCeConnection(@"Data Source='C:\VIDB\testdb.mdf'");
         }
     }
 }
