@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DBLib
+﻿namespace DBLib
 {
     public class DbTable
     {
@@ -14,7 +8,7 @@ namespace DBLib
             IsClientTable = isClientTable;
         }
 
-        public string Name { get; }    
+        public string Name { get; }
 
         public bool IsClientTable { get; }
     }

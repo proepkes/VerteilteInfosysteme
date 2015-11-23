@@ -1,19 +1,18 @@
-﻿using System.Data.SqlClient;
-using DBLib;
+﻿using DBLib;
 using Microsoft.Synchronization.Data;
 using Microsoft.Synchronization.Data.SqlServer;
 
 namespace VIDBReplication
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
-            
+
             //var deprovisionScope = new SqlSyncScopeDeprovisioning(serverConn);
             //deprovisionScope.DeprovisionScope("FullScope");
-            
+
             // define a new scope
             var scopeDesc = new DbSyncScopeDescription("FullScope");
 
@@ -31,7 +30,7 @@ namespace VIDBReplication
             serverProvision.SetCreateTableDefault(DbSyncCreationOption.Skip);
 
             // start the provisioning process
-            if(!serverProvision.ScopeExists(scopeDesc.ScopeName))
+            if (!serverProvision.ScopeExists(scopeDesc.ScopeName))
                 serverProvision.Apply();
         }
     }

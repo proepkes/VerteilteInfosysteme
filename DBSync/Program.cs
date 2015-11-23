@@ -1,14 +1,8 @@
-﻿using System;
-using System.Data.SqlClient;
-using Microsoft.Synchronization;
-using Microsoft.Synchronization.Data;
-using Microsoft.Synchronization.Data.SqlServer;
-
-namespace DBSync
+﻿namespace DBSync
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             new DbSynchronizer().Synchronize();
         }
