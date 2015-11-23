@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DBLib;
+﻿using DBLib;
 using Microsoft.Synchronization.Data.SqlServer;
-using Microsoft.Synchronization.Data.SqlServerCe;
 
 namespace ProvisionClient
 {
-    class ClientProvisioner
+    internal class ClientProvisioner
     {
         public void ProvisionClient()
         {

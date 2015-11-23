@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DBLib;
 using Microsoft.Synchronization;
 using Microsoft.Synchronization.Data;
-using Microsoft.Synchronization.Data.Server;
 using Microsoft.Synchronization.Data.SqlServer;
-using DBLib;
 
 namespace DBSync
 {
-    class DbSynchronizer
+    internal class DbSynchronizer
     {
         public void Synchronize()
         {
@@ -34,19 +27,20 @@ namespace DBSync
             serverSyncProvider.ChangesSelected += ServerSyncProviderOnChangesSelected;
             // create the sync orhcestrator
             var syncOrchestrator = new SyncOrchestrator
-            {   
+            {
                 LocalProvider = clientSyncProvider,
                 RemoteProvider = serverSyncProvider,
                 Direction = SyncDirectionOrder.UploadAndDownload
-                
             };
             // execute the synchronization process
             var syncStats = syncOrchestrator.Synchronize();
 
             // print statistics
             Console.WriteLine("Start Time: " + syncStats.SyncStartTime);
-            Console.WriteLine("Total Changes Uploaded: " + syncStats.UploadChangesTotal); // Changes from Client to Server (LocalSyncProvider to RemoteSyncProvider)
-            Console.WriteLine("Total Changes Downloaded: " + syncStats.DownloadChangesTotal); // Changes from Server to Client (RemoteSyncProvider to LocalSyncProvider)
+            Console.WriteLine("Total Changes Uploaded: " + syncStats.UploadChangesTotal);
+                // Changes from Client to Server (LocalSyncProvider to RemoteSyncProvider)
+            Console.WriteLine("Total Changes Downloaded: " + syncStats.DownloadChangesTotal);
+                // Changes from Server to Client (RemoteSyncProvider to LocalSyncProvider)
             Console.WriteLine("Complete Time: " + syncStats.SyncEndTime);
             Console.WriteLine(string.Empty);
             Console.ReadLine();
@@ -54,10 +48,10 @@ namespace DBSync
 
         private void ClientSyncProvider_ChangesSelected(object sender, DbChangesSelectedEventArgs e)
         {
-            for (int i = 0; i < e.Context.DataSet.Tables.Count; i++)
+            for (var i = 0; i < e.Context.DataSet.Tables.Count; i++)
             {
                 var dataTable = e.Context.DataSet.Tables[i];
-                for (int j = 0; j < dataTable.Rows.Count; j++)
+                for (var j = 0; j < dataTable.Rows.Count; j++)
                 {
                     var row = dataTable.Rows[j];
                     if (row.RowState == DataRowState.Modified)
@@ -72,16 +66,15 @@ namespace DBSync
 
         private void ServerSyncProviderOnChangesSelected(object sender, DbChangesSelectedEventArgs e)
         {
-            for (int i = 0; i < e.Context.DataSet.Tables.Count; i++)
+            for (var i = 0; i < e.Context.DataSet.Tables.Count; i++)
             {
                 var dataTable = e.Context.DataSet.Tables[i];
-                for (int j = 0; j < dataTable.Rows.Count; j++)
+                for (var j = 0; j < dataTable.Rows.Count; j++)
                 {
                     var row = dataTable.Rows[j];
-                        Console.WriteLine("Change selected: ");
-                        Console.WriteLine("-Table: " + dataTable.TableName);
-                        Console.WriteLine("-Row " + row.ItemArray[0] + ": " + row.RowState);
-                    
+                    Console.WriteLine("Change selected: ");
+                    Console.WriteLine("-Table: " + dataTable.TableName);
+                    Console.WriteLine("-Row " + row.ItemArray[0] + ": " + row.RowState);
                 }
             }
         }
