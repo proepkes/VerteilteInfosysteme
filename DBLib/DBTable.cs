@@ -8,8 +8,8 @@
             IsClientTable = isClientTable;
         }
 
-        public string Name { get; }
+        public string Name { get; private set; }
 
-        public bool IsClientTable { get; }
+        public bool IsClientTable { get; private set; }
     }
 }
