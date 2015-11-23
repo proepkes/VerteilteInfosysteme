@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -23,11 +25,13 @@ namespace DBSync
             var clientConn = SqlConnectionFactory.CreateDefaultClientConnection();
             var clientSyncProvider = new SqlSyncProvider("FullScope", clientConn);
             clientSyncProvider.ApplyChangeFailed += ClientApplyChangeFailed;
+            clientSyncProvider.ChangesSelected += ClientSyncProvider_ChangesSelected;
+
             // create a connection to the ServerDB
             var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
-            var serverSyncProvider = new DbServerSyncProvider();//
-            "FullScope", serverConn);
+            var serverSyncProvider = new SqlSyncProvider("FullScope", serverConn);
             serverSyncProvider.ApplyChangeFailed += ServerApplyChangeFailed;
+            serverSyncProvider.ChangesSelected += ServerSyncProviderOnChangesSelected;
             // create the sync orhcestrator
             var syncOrchestrator = new SyncOrchestrator
             {   
@@ -36,7 +40,6 @@ namespace DBSync
                 Direction = SyncDirectionOrder.UploadAndDownload
                 
             };
-
             // execute the synchronization process
             var syncStats = syncOrchestrator.Synchronize();
 
@@ -49,7 +52,39 @@ namespace DBSync
             Console.ReadLine();
         }
 
+        private void ClientSyncProvider_ChangesSelected(object sender, DbChangesSelectedEventArgs e)
+        {
+            for (int i = 0; i < e.Context.DataSet.Tables.Count; i++)
+            {
+                var dataTable = e.Context.DataSet.Tables[i];
+                for (int j = 0; j < dataTable.Rows.Count; j++)
+                {
+                    var row = dataTable.Rows[j];
+                    if (row.RowState == DataRowState.Modified)
+                    {
+                        Console.WriteLine("Change selected: ");
+                        Console.WriteLine("-Table: " + dataTable.TableName);
+                        Console.WriteLine("-Row: " + j);
+                    }
+                }
+            }
+        }
 
+        private void ServerSyncProviderOnChangesSelected(object sender, DbChangesSelectedEventArgs e)
+        {
+            for (int i = 0; i < e.Context.DataSet.Tables.Count; i++)
+            {
+                var dataTable = e.Context.DataSet.Tables[i];
+                for (int j = 0; j < dataTable.Rows.Count; j++)
+                {
+                    var row = dataTable.Rows[j];
+                        Console.WriteLine("Change selected: ");
+                        Console.WriteLine("-Table: " + dataTable.TableName);
+                        Console.WriteLine("-Row " + row.ItemArray[0] + ": " + row.RowState);
+                    
+                }
+            }
+        }
 
         private void ServerApplyChangeFailed(object sender, DbApplyChangeFailedEventArgs e)
         {

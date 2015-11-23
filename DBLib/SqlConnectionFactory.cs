@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,19 +10,14 @@ namespace DBLib
 {
     public static class SqlConnectionFactory
     {
-        public static SqlConnection CreateConnection(string hostname, string databasename, bool integratedSecurity = true)
-        {
-            return new SqlConnection("Data Source=" + hostname + "; Initial Catalog=" + databasename + "; Integrated Security=" + integratedSecurity);
-        }
-
         public static SqlConnection CreateDefaultServerConnection()
         {
-            return CreateConnection(DbInfo.DefaultHostname, DbInfo.DefaultServerDatabase);
+            return new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" + DbInfo.DefaultServerDatabase + "; Integrated Security=" + true);
         }
 
         public static SqlConnection CreateDefaultClientConnection()
         {
-            return CreateConnection(DbInfo.DefaultHostname, DbInfo.DefaultClientDatabase);
+            return new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" + DbInfo.DefaultClientDatabase + "; Integrated Security=" + true);
         }
     }
 }
