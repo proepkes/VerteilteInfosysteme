@@ -1,31 +1,30 @@
-﻿using System.Data.SqlClient;
+﻿using System;
 using System.Data.SqlServerCe;
-
-using Microsoft.Synchronization.Data;
-using Microsoft.Synchronization.Data.SqlServer;
-using Microsoft.Synchronization.Data.SqlServerCe;
+using DBLib;
 
 namespace ProvisionClient
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            // create a connection to the client database
-            var clientConn = new SqlConnection("Data Source = localhost; Initial Catalog = vi_client; Integrated Security = True");
-
-            // create a connection to the master database
-            var serverConn = new SqlConnection("Data Source=localhost; Initial Catalog=vi_server; Integrated Security=True");
-
-            // get the description of FullScope from the master database
-            var scopeDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope("FullScope", serverConn);
-
-            // create provisioning object based on the FullScope
-            var clientProvision = new SqlSyncScopeProvisioning(clientConn, scopeDesc);
-
-            // starts the provisioning process
-            clientProvision.Apply();
-
+            //SqlCeEngine engine =
+            // new SqlCeEngine(SqlConnectionFactory.DataSourceCe);
+            //if (false == engine.Verify())
+            //{
+            //    Console.WriteLine("Database is corrupted.");
+            //    try
+            //    {
+            //        engine.Repair(null, RepairOption.DeleteCorruptedRows);
+            //    }
+            //    catch (SqlCeException ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
+            //Console.WriteLine("Press any key to continue.");
+            //Console.ReadLine();
+            new ClientProvisioner().ProvisionClient();
         }
     }
 }
