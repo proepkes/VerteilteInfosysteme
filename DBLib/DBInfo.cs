@@ -8,7 +8,7 @@
 
         public static DbTable[] Tables =
         {
-            new DbTable("seller"),
+            new DbTable("sellers"),
             new DbTable("ship_tours"),
             new DbTable("ship_routes"),
             new DbTable("customers"),

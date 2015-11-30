@@ -27,7 +27,7 @@ namespace VIDBReplication
             var serverProvision = new SqlSyncScopeProvisioning(serverConn, scopeDesc);
 
             // skipping the creation of table since table already exists on server
-            serverProvision.SetCreateTableDefault(DbSyncCreationOption.Skip);
+            serverProvision.SetCreateTableDefault(DbSyncCreationOption.CreateOrUseExisting);
 
             // start the provisioning process
             if (!serverProvision.ScopeExists(scopeDesc.ScopeName))
