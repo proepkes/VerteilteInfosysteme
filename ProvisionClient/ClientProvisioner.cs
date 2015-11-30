@@ -9,7 +9,7 @@ namespace ProvisionClient
         public void ProvisionClient()
         {
             // create a connection to the client database
-            var clientConn = SqlConnectionFactory.CreateDefaultClientCeConnection();
+            var clientConn = SqlConnectionFactory.CreateDefaultClientConnection();
 
             // create a connection to the master database
             var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
@@ -18,7 +18,7 @@ namespace ProvisionClient
             var scopeDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope("FullScope", serverConn);
 
             // create provisioning object based on the FullScope
-            var clientProvision = new SqlCeSyncScopeProvisioning(clientConn, scopeDesc);
+            var clientProvision = new SqlSyncScopeProvisioning(clientConn, scopeDesc);
 
             // starts the provisioning process
             clientProvision.Apply();

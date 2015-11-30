@@ -18,7 +18,7 @@ namespace DBSync
             var clientConn = SqlConnectionFactory.CreateDefaultClientConnection();
             var clientSyncProvider = new SqlSyncProvider("FullScope", clientConn);
             clientSyncProvider.ApplyChangeFailed += ClientApplyChangeFailed;
-            clientSyncProvider.ChangesSelected += ClientSyncProvider_ChangesSelected;
+            clientSyncProvider.ChangesSelected += ClientSyncProviderOnChangesSelected;
 
             // create a connection to the ServerDB
             var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
@@ -46,20 +46,18 @@ namespace DBSync
             Console.ReadLine();
         }
 
-        private void ClientSyncProvider_ChangesSelected(object sender, DbChangesSelectedEventArgs e)
+        private void ClientSyncProviderOnChangesSelected(object sender, DbChangesSelectedEventArgs e)
         {
+            Console.WriteLine("Client Change selected: ");
             for (var i = 0; i < e.Context.DataSet.Tables.Count; i++)
             {
                 var dataTable = e.Context.DataSet.Tables[i];
                 for (var j = 0; j < dataTable.Rows.Count; j++)
                 {
                     var row = dataTable.Rows[j];
-                    if (row.RowState == DataRowState.Modified)
-                    {
-                        Console.WriteLine("Change selected: ");
-                        Console.WriteLine("-Table: " + dataTable.TableName);
-                        Console.WriteLine("-Row: " + j);
-                    }
+
+                    Console.WriteLine(dataTable.TableName + "[" + j + "]: " + row.RowState);
+                   
                 }
             }
         }
@@ -72,7 +70,7 @@ namespace DBSync
                 for (var j = 0; j < dataTable.Rows.Count; j++)
                 {
                     var row = dataTable.Rows[j];
-                    Console.WriteLine("Change selected: ");
+                    Console.WriteLine("Server Change selected: ");
                     Console.WriteLine("-Table: " + dataTable.TableName);
                     Console.WriteLine("-Row " + row.ItemArray[0] + ": " + row.RowState);
                 }

@@ -5,6 +5,8 @@ namespace DBLib
 {
     public static class SqlConnectionFactory
     {
+        public static string DataSourceCe =
+            @"Data Source='C:\VIDB\" + DbInfo.DefaultClientDatabase + ".mdf'";
         public static SqlConnection CreateDefaultServerConnection()
         {
             return
@@ -22,7 +24,7 @@ namespace DBLib
         public static SqlCeConnection CreateDefaultClientCeConnection()
         {
             return
-                new SqlCeConnection(@"Data Source='C:\VIDB\testdb.mdf'");
+                new SqlCeConnection(DataSourceCe);
         }
     }
 }
