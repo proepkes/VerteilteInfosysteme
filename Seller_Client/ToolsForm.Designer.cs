@@ -34,7 +34,7 @@
             // 
             // btn_provisionClient
             // 
-            this.btn_provisionClient.Location = new System.Drawing.Point(12, 12);
+            this.btn_provisionClient.Location = new System.Drawing.Point(12, 55);
             this.btn_provisionClient.Name = "btn_provisionClient";
             this.btn_provisionClient.Size = new System.Drawing.Size(221, 37);
             this.btn_provisionClient.TabIndex = 0;
@@ -44,21 +44,22 @@
             // 
             // btn_provisionServer
             // 
-            this.btn_provisionServer.Location = new System.Drawing.Point(12, 55);
+            this.btn_provisionServer.Location = new System.Drawing.Point(12, 12);
             this.btn_provisionServer.Name = "btn_provisionServer";
             this.btn_provisionServer.Size = new System.Drawing.Size(221, 37);
             this.btn_provisionServer.TabIndex = 1;
             this.btn_provisionServer.Text = "ProvisionServer";
             this.btn_provisionServer.UseVisualStyleBackColor = true;
+            this.btn_provisionServer.Click += new System.EventHandler(this.btn_provision_Click);
             // 
-            // FormTools
+            // ToolsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(245, 112);
+            this.ClientSize = new System.Drawing.Size(245, 103);
             this.Controls.Add(this.btn_provisionServer);
             this.Controls.Add(this.btn_provisionClient);
-            this.Name = "FormTools";
+            this.Name = "ToolsForm";
             this.Text = "Tools";
             this.ResumeLayout(false);
 

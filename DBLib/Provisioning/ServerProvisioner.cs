@@ -10,8 +10,8 @@ namespace DBLib.Provisioning
         {
             var serverConn = serverConnection ?? SqlConnectionFactory.DefaultServerConnection;
 
-            //var deprovisionScope = new SqlSyncScopeDeprovisioning(serverConn);
-            //deprovisionScope.DeprovisionScope("FullScope");
+            var deprovisionScope = new SqlSyncScopeDeprovisioning(serverConn);
+            deprovisionScope.DeprovisionScope("FullScope");
 
             // define a new scope
             var scopeDesc = new DbSyncScopeDescription("FullScope");
