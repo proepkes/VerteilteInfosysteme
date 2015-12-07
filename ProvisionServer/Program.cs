@@ -1,7 +1,7 @@
 ﻿using DBLib;
 using Microsoft.Synchronization.Data;
 using Microsoft.Synchronization.Data.SqlServer;
-
+using System;
 namespace VIDBReplication
 {
     internal class Program
@@ -32,6 +32,8 @@ namespace VIDBReplication
             // start the provisioning process
             if (!serverProvision.ScopeExists(scopeDesc.ScopeName))
                 serverProvision.Apply();
+
+            Console.Write("fontionne bien (y)");
         }
     }
 }
