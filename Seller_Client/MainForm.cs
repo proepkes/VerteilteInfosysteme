@@ -36,7 +36,7 @@ namespace Seller_Client
 
         private void btn_synchronize_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("SellerID: " + XMLReader.SellerID() + "\nServer: " + XMLReader.ServerConnection_String() + "\nClient: " + XMLReader.ClientConnection_String());
+            MessageBox.Show(@"SellerID: " + XMLReader.SellerID() + @"\nServer: " + XMLReader.ServerConnection_String() + @"\nClient: " + XMLReader.ClientConnection_String());
             new DbSynchronizer().Synchronize();
         }
     }
