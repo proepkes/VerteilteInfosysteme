@@ -42,6 +42,7 @@
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,7 @@
     <Compile Include="DbInfo.cs" />
     <Compile Include="DbTable.cs" />
     <Compile Include="LogUtilities.cs" />
+    <Compile Include="ScopeFactory.cs" />
     <Compile Include="Provisioning\ServerProvisioner.cs" />
     <Compile Include="SqlConnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

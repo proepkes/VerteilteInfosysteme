@@ -17,10 +17,9 @@ namespace DBLib.Provisioning
             var scopeDesc = new DbSyncScopeDescription("FullScope");
 
             // add the table description to the sync scope definition
-            foreach (var table in DbInfo.Tables)
+            foreach (var table in DbInfo.Tables) //TODO: view (oder JOINs) synchronisieren?
                 scopeDesc.Tables.Add(SqlSyncDescriptionBuilder.GetDescriptionForTable(table.Name, serverConn));
-
-            //TODO: Protokollierung von Aenderungen // Aenderungen ausgeben
+            
             //TODO: Server-Event feuern sobald ein Client synchronisiert
 
             // create a server scope provisioning object based on the ProductScope

@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLib", "DBLib\DBLib.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seller_Client", "Seller_Client\Seller_Client.csproj", "{0D29662C-A855-4F65-8ABD-3698142133F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PBT_Manager", "PBT_Manager\PBT_Manager.csproj", "{EB81FCE2-FE0F-4F1E-A77B-6CB807EAA06A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{0D29662C-A855-4F65-8ABD-3698142133F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D29662C-A855-4F65-8ABD-3698142133F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D29662C-A855-4F65-8ABD-3698142133F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB81FCE2-FE0F-4F1E-A77B-6CB807EAA06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB81FCE2-FE0F-4F1E-A77B-6CB807EAA06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB81FCE2-FE0F-4F1E-A77B-6CB807EAA06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB81FCE2-FE0F-4F1E-A77B-6CB807EAA06A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
