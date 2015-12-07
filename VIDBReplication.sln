@@ -1,11 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionServer", "ProvisionServer\ProvisionServer.csproj", "{3A34B18E-94B8-4245-BB0D-7985B08EBD41}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionClient", "ProvisionClient\ProvisionClient.csproj", "{8DEDBD6F-7035-4501-8775-859062049D19}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSync", "DBSync\DBSync.csproj", "{6F64A4B6-966F-47B6-A79E-5A27BB113578}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLib", "DBLib\DBLib.csproj", "{02F42CC9-FF99-4254-A22D-7CAFB2BDF186}"
@@ -18,14 +14,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A34B18E-94B8-4245-BB0D-7985B08EBD41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A34B18E-94B8-4245-BB0D-7985B08EBD41}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A34B18E-94B8-4245-BB0D-7985B08EBD41}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A34B18E-94B8-4245-BB0D-7985B08EBD41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8DEDBD6F-7035-4501-8775-859062049D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8DEDBD6F-7035-4501-8775-859062049D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8DEDBD6F-7035-4501-8775-859062049D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8DEDBD6F-7035-4501-8775-859062049D19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F64A4B6-966F-47B6-A79E-5A27BB113578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F64A4B6-966F-47B6-A79E-5A27BB113578}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F64A4B6-966F-47B6-A79E-5A27BB113578}.Release|Any CPU.ActiveCfg = Release|Any CPU

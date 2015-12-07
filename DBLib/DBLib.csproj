@@ -50,9 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Provisioning\ClientProvisioner.cs" />
     <Compile Include="DbInfo.cs" />
     <Compile Include="DbTable.cs" />
     <Compile Include="LogUtilities.cs" />
+    <Compile Include="Provisioning\ServerProvisioner.cs" />
     <Compile Include="SqlConnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -13,16 +13,12 @@ namespace DBSync
         public void Synchronize()
         {
             LogUtilities.LogTracingLevels();
-
-            // create a connection to the ClientDB 
-            var clientConn = SqlConnectionFactory.CreateDefaultClientConnection();
-            var clientSyncProvider = new SqlSyncProvider("FullScope", clientConn);
+            
+            var clientSyncProvider = new SqlSyncProvider("FullScope", SqlConnectionFactory.DefaultClientConnection);
             clientSyncProvider.ApplyChangeFailed += ClientApplyChangeFailed;
             clientSyncProvider.ChangesSelected += ClientSyncProviderOnChangesSelected;
-
-            // create a connection to the ServerDB
-            var serverConn = SqlConnectionFactory.CreateDefaultServerConnection();
-            var serverSyncProvider = new SqlSyncProvider("FullScope", serverConn);
+            
+            var serverSyncProvider = new SqlSyncProvider("FullScope", SqlConnectionFactory.DefaultServerConnection);
             serverSyncProvider.ApplyChangeFailed += ServerApplyChangeFailed;
             serverSyncProvider.ChangesSelected += ServerSyncProviderOnChangesSelected;
             // create the sync orhcestrator
@@ -34,6 +30,8 @@ namespace DBSync
             };
             // execute the synchronization process
             var syncStats = syncOrchestrator.Synchronize();
+
+            //TODO: einzelne Spalten synchronisierbar?
 
             // print statistics
             Console.WriteLine("Start Time: " + syncStats.SyncStartTime);
