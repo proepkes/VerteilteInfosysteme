@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Connection.Config>
+  <SellerID>1</SellerID>
+  <ScopeInit>TRUE</ScopeInit>
+
+  <Server_Connection>1</Server_Connection>
+  <Client_Connection>2</Client_Connection>
+
+
+  <SQL-Server id ="1">
+    <Connection>Data Source=localhost;Initial Catalog=vi_server;Integrated Security=True;</Connection>
+  </SQL-Server>
+
+  <SQL-Server id ="2">
+    <Connection>Data Source=localhost;Initial Catalog=vi_client;Integrated Security=True;</Connection>
+  </SQL-Server>
+
+</Connection.Config>
