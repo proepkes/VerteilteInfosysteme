@@ -6,7 +6,7 @@ namespace DBLib.Provisioning
 {
     public class ServerProvisioner
     {
-        public void ProvisionServer(SqlConnection serverConnection)
+        public void ProvisionServer(SqlConnection serverConnection = null)
         {
             var serverConn = serverConnection ?? SqlConnectionFactory.DefaultServerConnection;
 
