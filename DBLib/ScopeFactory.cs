@@ -53,7 +53,7 @@ namespace DBLib
         {
             DbSyncScopeDescription currentDesc = SqlSyncDescriptionBuilder.GetDescriptionForScope(DbInfo.ScopeName(SellerID), ServerCON);
             // create a server scope provisioning object
-            SqlSyncScopeProvisioning Provision = new SqlSyncScopeProvisioning(ClientCON, currentDesc);
+            var Provision = new SqlSyncScopeProvisioning(ClientCON, currentDesc);
 
             refreshScope(Provision,currentDesc, ClientCON);
 

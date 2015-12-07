@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Data.SqlServerCe;
+using Seller_Client;
 
 namespace DBLib
 {
@@ -10,8 +11,9 @@ namespace DBLib
         {
             get
             {
-                return new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" +
-                    DbInfo.DefaultClientDatabase + "; Integrated Security=" + true);
+                //    return new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" +
+                //        DbInfo.DefaultClientDatabase + "; Integrated Security=" + true);
+                return new SqlConnection(XMLReader.ClientConnection_String());
             }
         }
 
@@ -20,19 +22,11 @@ namespace DBLib
         {
             get
             {
-                return
-                    new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" +
-                                      DbInfo.DefaultServerDatabase + "; Integrated Security=" + true);
+                //return
+                //    new SqlConnection("Data Source=" + DbInfo.DefaultHostname + "; Initial Catalog=" +
+                //                      DbInfo.DefaultServerDatabase + "; Integrated Security=" + true);
+                return new SqlConnection(XMLReader.ServerConnection_String());
             }
-        }
-        public static string DataSourceCe =
-            @"Data Source='C:\VIDB\" + DbInfo.DefaultClientDatabase + ".mdf'";
-
-
-        public static SqlCeConnection CreateDefaultClientCeConnection()
-        {
-            return
-                new SqlCeConnection(DataSourceCe);
         }
     }
 }

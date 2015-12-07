@@ -60,6 +60,7 @@
     <Compile Include="SqlConnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Synchronization\DbSynchronizer.cs" />
+    <Compile Include="XMLReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
