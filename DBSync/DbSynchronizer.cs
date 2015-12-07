@@ -12,7 +12,7 @@ namespace DBSync
     {
         public void Synchronize()
         {
-            LogUtilities.LogTracingLevels(); //asdf
+            LogUtilities.LogTracingLevels();
             
             var clientSyncProvider = new SqlSyncProvider("FullScope", SqlConnectionFactory.DefaultClientConnection);
             clientSyncProvider.ApplyChangeFailed += ClientApplyChangeFailed;
