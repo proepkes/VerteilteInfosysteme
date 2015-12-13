@@ -61,12 +61,7 @@ namespace DBLib
                 Provision.Apply();
 
             // unstimmigkeiten zwischen scope und realer db (col add/remove /alter type)
-
-
         }
-
- 
-
 
 
         private void refreshScope(SqlSyncScopeProvisioning Provision, DbSyncScopeDescription currentDesc, SqlConnection CON)
@@ -91,8 +86,6 @@ namespace DBLib
                     }
                 }
             }
-
-
         }
 
 
@@ -120,22 +113,11 @@ namespace DBLib
                             if (table1.Columns[i].IsNullable != table2.Columns[i].IsNullable) return false;
                             if (table1.Columns[i].IsPrimaryKey != table2.Columns[i].IsPrimaryKey) return false;
                         }
-
                     }
                 }
                 if (!res) return false;
             }
-            
-
-
             return true;
         }
-
-
-
-
-
-
-
     }
 }
